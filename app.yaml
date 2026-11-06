@@ -1,0 +1,4 @@
+name: digital-library-backend
+app_id: digital-library-backend
+runner: wasmer/nodejs
+entrypoint: server.j

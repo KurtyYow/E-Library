@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexLibrary | Agentic AI E-Library</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="brand">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">Nex<strong>Library</strong></span>
+                <span class="badge-v1">Nex</span>
+            </div>
+            
+            <div class="user-control">
+                <div class="status-pill" id="userStatusPill">
+                    <span class="dot guest-dot"></span>
+                    <span id="userStatus">Guest Mode (5 Downloads Max)</span>
+                </div>
+                <button class="btn-login" id="loginBtn" onclick="toggleAuthModal()">Sign In</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <h2>Discover 200+ Open Academic Works</h2>
+            <p>Integrated AI-driven knowledge retrieval platform.</p>
+
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="searchInput" placeholder="Search by title, author, or category..." onkeyup="fetchBooks()">
+            </div>
+
+            <div class="category-pills">
+                <button class="chip active" onclick="filterCategory('')">All</button>
+                <button class="chip" onclick="filterCategory('Computer Science')">Computer Science</button>
+                <button class="chip" onclick="filterCategory('Information Technology')">IT</button>
+                <button class="chip" onclick="filterCategory('Mathematics')">Mathematics</button>
+                <button class="chip" onclick="filterCategory('Physics')">Physics</button>
+                <button class="chip" onclick="filterCategory('Fiction')">Fiction</button>
+            </div>
+        </section>
+
+        <section class="catalog-section">
+            <div class="section-header">
+                <h3>Catalog Index</h3>
+                <span id="bookCount" class="count-badge">Loading books...</span>
+            </div>
+            <div id="bookCatalog" class="catalog-grid"></div>
+        </section>
+    </main>
+
+    <!-- Floating Agentic AI Assistant -->
+    <div class="ai-widget-container" id="aiWidget">
+        <div class="ai-header" onclick="toggleAiWidget()">
+            <div class="ai-title">
+                <span class="ai-status-pulse"></span>
+                <strong>Library Agent AI</strong>
+            </div>
+            <button class="ai-toggle-btn" id="aiToggleBtn">−</button>
+        </div>
+        <div class="ai-body" id="aiBody">
+            <div class="ai-logs" id="aiLogs">
+                <div class="chat-bubble agent-bubble">
+                    <strong>Agent:</strong> Hello! I am your Embedded Digital Library Assistant. Ask me to search catalog titles or verify download access.
+                </div>
+            </div>
+            <div class="ai-input-bar">
+                <input type="text" id="agentInput" placeholder="Ask AI agent..." onkeypress="handleAiKeyPress(event)">
+                <button onclick="sendAgentQuery()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <!-- Auth Modal -->
+<div id="authModal" class="modal hidden">
+    <div class="modal-card">
+        <h3>Account Access</h3>
+        <p class="modal-subtitle">Login or create an account to unlock 10 download slots.</p>
+        
+        <div class="input-group">
+            <label>Username</label>
+            <input type="text" id="username" placeholder="Enter username">
+        </div>
+        
+        <div class="input-group">
+            <label>Password</label>
+            <input type="password" id="password" placeholder="••••••••">
+        </div>
+
+        <div class="modal-actions">
+            <button class="btn-primary" onclick="login()">Sign In</button>
+            <button class="btn-secondary" onclick="register()">Register</button>
+        </div>
+        <button class="btn-close" onclick="toggleAuthModal()">×</button>
+    </div>
+</div>
+
+    <script src="app.js"></script>
+</body>
+</html>

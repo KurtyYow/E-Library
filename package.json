@@ -1,0 +1,17 @@
+{
+  "name": "elibrary-backend",
+  "version": "1.0.0",
+  "description": "Integrated E-Library Node.js Backend",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node seed_books.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "sqlite3": "^5.1.7"
+  }
+}
